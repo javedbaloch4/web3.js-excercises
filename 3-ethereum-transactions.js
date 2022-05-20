@@ -21,14 +21,15 @@ const privateKey2 = Buffer.from(
 );
 
 web3.eth.getTransactionCount(account1, (err, txCount) => {
+  console.log(err);
   // Transaction object
   const txObject = {
     from: account1,
     nonce: web3.utils.toHex(txCount),
     to: account2,
     value: web3.utils.toHex(web3.utils.toWei("0.1", "ether")),
-    gasLimit: web3.utils.toHex(21000),
-    gasPrice: web3.utils.toHex(web3.utils.toWei("10", "gwei")),
+    gasLimit: web3.utils.toHex(100000),
+    gasPrice: web3.utils.toHex(web3.utils.toWei("1", "gwei")),
   };
 
   // Sign the transaction
